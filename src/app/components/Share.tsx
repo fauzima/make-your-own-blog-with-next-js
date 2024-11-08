@@ -14,25 +14,25 @@ const share: IShare[] = [
     Icon: BsFacebook,
     link: "https://fb.com/sharer/sharer.php?u=",
     style:
-      "hover:text-[#4267B2] transition ease-in-out delay-[50ms] duration-150 active:scale-95",
+      "hover:text-[#4267B2] transition ease-in-out delay-[50ms] duration-150 active:scale-75",
   },
   {
     Icon: BsLinkedin,
     link: "https://linkedin.com/sharing/share-offsite/?url=",
     style:
-      "hover:text-[#0072b1] transition ease-in-out delay-[50ms] duration-150 active:scale-95",
+      "hover:text-[#0072b1] transition ease-in-out delay-[50ms] duration-150 active:scale-75",
   },
   {
     Icon: BsWhatsapp,
     link: "https://wa.me/?text=",
     style:
-      "hover:text-[#25D366] transition ease-in-out delay-[50ms] duration-150 active:scale-95",
+      "hover:text-[#25D366] transition ease-in-out delay-[50ms] duration-150 active:scale-75",
   },
   {
     Icon: BsTwitterX,
     link: "https://x.com/intent/tweet?url=",
     style:
-      "hover:text-[#555] transition ease-in-out delay-[50ms] duration-150 active:scale-95",
+      "hover:text-[#555] transition ease-in-out delay-[50ms] duration-150 active:scale-75",
   },
 ];
 
@@ -41,6 +41,7 @@ export default function ShareSection({ slug }: { slug: string }) {
     <div className="inline-flex items-center">
       <div className="font-bold text-xl mr-5">Share :</div>
       <div className="inline-flex gap-5 text-xl">
+        <BsWhatsapp className="" />
         <CopyButton slug={slug} />
         {share.map((item, idx) => {
           return (

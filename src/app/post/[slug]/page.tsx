@@ -1,5 +1,6 @@
+import Recs from "@/app/components/Recs";
 import ShareSection from "@/app/components/Share";
-import { getBlogs, getBlogSlug } from "@/app/libs/blog";
+import { getBlogRecs, getBlogs, getBlogSlug } from "@/app/libs/blog";
 import { IBlog } from "@/app/types/blog";
 import {
   documentToReactComponents,
@@ -37,6 +38,7 @@ export default async function BlogPostPage({
   params: { slug: string };
 }) {
   const blog: IBlog = await getBlogSlug(params.slug);
+  const blogNe: IBlog[] = await getBlogRecs(params.slug);
   const options: Options = {
     renderNode: {
       [BLOCKS.OL_LIST]: (node, children) => (
@@ -93,10 +95,16 @@ export default async function BlogPostPage({
           src={`https:${blog.fields.thumbnail.fields.file.url}`}
           alt={`${blog.fields.slug}`}
         />
-        <div className="text-justify mb-6">
+        <div className="text-justify mb-3">
           {documentToReactComponents(blog.fields.content, options)}
         </div>
+        <hr className="w-full my-3"/>
         <ShareSection slug={blog.fields.slug} />
+        <hr className="w-full my-3"/>
+        <div className="font-bold text-3xl mt-3 mb-6">
+          More blog posts
+        </div>
+        <Recs blogs={blogNe} />
       </main>
     </div>
   );

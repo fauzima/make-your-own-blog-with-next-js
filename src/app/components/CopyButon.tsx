@@ -8,20 +8,20 @@ export default function CopyButton({ slug }: { slug: string }) {
   const [copied, setCopied] = useState<boolean>(false);
   return (
     <button
-      className=""
+      className="active:scale-50 active:opacity-0 transition-transform ease-in-out duration-75"
       onClick={() => {
         copy(slug);
         setCopied(true);
         setTimeout(() => {
           setCopied(false);
-        }, 1000);
+        }, 5000);
       }}
       //   onMouseLeave={() => setCopied(false)}
     >
       {copied ? (
-        <BsCheck2 className="text-green-500" />
+        <BsCheck2 className="text-green-500 hover:scale-50 hover:opacity-0 transition ease-in-out duration-150 delay-1000" />
       ) : (
-        <BsLink className="hover:text-[#333] transition ease-in-out delay-[50ms] duration-150 hover:cursor-pointer active:scale-95" />
+        <BsLink className="hover:text-[#333] transition ease-in-out delay-[50ms] duration-150 hover:cursor-pointer" />
       )}
     </button>
   );
