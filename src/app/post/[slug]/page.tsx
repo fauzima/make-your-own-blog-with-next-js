@@ -1,3 +1,4 @@
+import ShareSection from "@/app/components/Share";
 import { getBlogs, getBlogSlug } from "@/app/libs/blog";
 import { IBlog } from "@/app/types/blog";
 import {
@@ -25,9 +26,7 @@ export async function generateMetadata({
     describe: blog.fields.title,
     authors: blog.fields.author.fields.name,
     openGraph: {
-      images: [
-        `https:${blog.fields.thumbnail.fields.file.url}`,
-      ],
+      images: [`https:${blog.fields.thumbnail.fields.file.url}`],
     },
   };
 }
@@ -94,9 +93,10 @@ export default async function BlogPostPage({
           src={`https:${blog.fields.thumbnail.fields.file.url}`}
           alt={`${blog.fields.slug}`}
         />
-        <div className="text-justify">
+        <div className="text-justify mb-6">
           {documentToReactComponents(blog.fields.content, options)}
         </div>
+        <ShareSection slug={blog.fields.slug} />
       </main>
     </div>
   );
