@@ -18,7 +18,7 @@ const share: IShare[] = [
   },
   {
     Icon: BsLinkedin,
-    link: "https://linked.in/sharing/share-offsite/?url=",
+    link: "https://linkedin.com/sharing/share-offsite/?url=",
     style:
       "hover:text-[#0072b1] transition ease-in-out delay-[50ms] duration-150 active:scale-95",
   },
