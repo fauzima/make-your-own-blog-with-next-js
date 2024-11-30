@@ -66,7 +66,7 @@ export default async function BlogPage({
   return (
     <div className="mx-auto max-w-screen-lg">
       <div className="flex flex-col text-lg">
-        <div className="flex flex-col gap-4 bg-neutral-400 px-4 pb-5 pt-20 transition-colors duration-1000 dark:bg-neutral-700 sm:px-8">
+        <div className="flex flex-col gap-4 bg-neutral-400 px-3 pb-5 pt-20 transition-colors dark:bg-neutral-700 sm:px-8">
           <p
             className={`${lato.className} hover:cursor-pointer hover:underline`}
           >
@@ -77,7 +77,7 @@ export default async function BlogPage({
           </h1>
           <p>{data.fields.summary}</p>
         </div>
-        <div className="flex flex-col gap-4 bg-neutral-300 px-4 py-5 transition-colors duration-1000 dark:bg-neutral-900 sm:px-8">
+        <div className="flex flex-col gap-4 bg-neutral-300 px-3 py-5 transition-colors dark:bg-neutral-900 sm:px-8">
           <div className="flex items-center gap-3">
             <Image
               priority
@@ -101,7 +101,7 @@ export default async function BlogPage({
               </p>
             </div>
           </div>
-          <hr className="border-neutral-400 transition-colors duration-1000 dark:border-neutral-700" />
+          <hr className="border-neutral-400 transition-colors dark:border-neutral-700" />
           <div className="flex justify-between">
             <div className="flex gap-4">
               <Icons slug={data.fields.slug} />
@@ -112,7 +112,7 @@ export default async function BlogPage({
             </p>
           </div>
         </div>
-        <div className="flex flex-col gap-4 bg-neutral-100 px-4 py-5 transition-colors duration-1000 dark:bg-neutral-950 sm:px-8 sm:py-8">
+        <div className="flex flex-col gap-4 bg-neutral-100 px-3 py-5 transition-colors dark:bg-neutral-950 sm:px-8 sm:py-8">
           <div className="relative aspect-[3/2] w-full overflow-hidden bg-neutral-500">
             <Image
               className="h-full w-full rounded-t object-cover object-center transition-transform group-hover:scale-110"

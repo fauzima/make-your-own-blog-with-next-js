@@ -8,7 +8,7 @@ export default function CopyButton({ slug }: { slug: string }) {
   const [copied, setCopied] = useState<boolean>(false);
   return (
     <button
-      className="transition-transform duration-1000 ease-in-out hover:duration-75 active:scale-50 active:opacity-0"
+      className="transition-transform duration-150 ease-in-out hover:duration-75 active:scale-50 active:opacity-0"
       onClick={() => {
         copy(`https://make-your-own-blog-with-next-js.vercel.app/post/${slug}`);
         setCopied(true);
@@ -27,7 +27,7 @@ export default function CopyButton({ slug }: { slug: string }) {
       ) : (
         <BsLink
           data-cy="link-icon"
-          className="transition delay-[50ms] duration-1000 ease-in-out hover:cursor-pointer hover:text-neutral-600 hover:duration-150 dark:hover:text-neutral-400"
+          className="transition delay-[50ms] duration-150 ease-in-out hover:cursor-pointer hover:text-neutral-600 dark:hover:text-neutral-400"
         />
       )}
     </button>

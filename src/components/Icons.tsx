@@ -13,26 +13,22 @@ const icons: IIcon[] = [
   {
     Icon: BsFacebook,
     link: "https://fb.com/sharer/sharer.php?u=",
-    style:
-      "hover:text-[#4267B2] transition hover:delay-[50ms] hover:duration-150 duration-1000",
+    style: "hover:text-[#4267B2] transition hover:delay-[50ms] duration-150",
   },
   {
     Icon: BsLinkedin,
     link: "https://linkedin.com/sharing/share-offsite/?url=",
-    style:
-      "hover:text-[#0072b1] transition hover:delay-[50ms] hover:duration-150 duration-1000",
+    style: "hover:text-[#0072b1] transition hover:delay-[50ms] duration-150",
   },
   {
     Icon: BsWhatsapp,
     link: "https://wa.me/?text=",
-    style:
-      "hover:text-[#25D366] transition hover:delay-[50ms] hover:duration-150 duration-1000",
+    style: "hover:text-[#25D366] transition hover:delay-[50ms] duration-150",
   },
   {
     Icon: BsTwitterX,
     link: "https://x.com/intent/tweet?url=",
-    style:
-      "hover:text-[#555] transition hover:delay-[50ms] hover:duration-150 duration-1000",
+    style: "hover:text-[#555] transition hover:delay-[50ms] duration-150",
   },
 ];
 
@@ -52,7 +48,6 @@ export default function Icons({ slug }: { slug: string }) {
           </Link>
         );
       })}
-      
     </div>
   );
 }

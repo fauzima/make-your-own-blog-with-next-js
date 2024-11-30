@@ -17,19 +17,17 @@ const tinos = Tinos({
 
 export default async function Home() {
   const data: IBlog[] = await getBlogs();
-  console.log(data);
-  
   return (
-    <div className="mx-auto my-20 max-w-screen-2xl px-4 sm:px-8">
+    <div className="mx-auto my-20 max-w-screen-2xl px-3 sm:px-8">
       <div className="flex flex-wrap content-start gap-x-6 gap-y-6 text-lg">
         {data.map((item) => {
           return (
             <div
               key={item.sys.createdAt}
-              className="group relative flex w-full flex-col rounded bg-neutral-100 transition-colors duration-1000 dark:bg-neutral-900/50 md:w-[calc(50%-12px)] xl:w-[calc(33.33%-16px)]"
+              className="group relative flex w-full flex-col rounded bg-neutral-100 transition-colors dark:bg-neutral-900/50 md:w-[calc(50%-12px)] xl:w-[calc(33.33%-16px)]"
             >
               <div
-                className={`${lato.className} absolute right-3 top-3 z-10 h-6 w-fit rounded-full bg-neutral-800 px-3 text-sm text-neutral-200 ring ring-neutral-300 transition-colors duration-1000 hover:cursor-pointer hover:bg-neutral-700 hover:underline hover:duration-150`}
+                className={`${lato.className} absolute right-3 top-3 z-10 inline-flex h-6 w-fit items-center rounded-full bg-neutral-800 px-3 text-base text-neutral-200 ring ring-neutral-300 transition-colors hover:cursor-pointer hover:bg-neutral-700`}
               >
                 {item.fields.category}
               </div>
@@ -53,8 +51,8 @@ export default async function Home() {
                 >
                   {item.fields.title}
                 </Link>
-                <hr className="my-3 border-neutral-300 transition-colors duration-1000 dark:border-neutral-700" />
-                <div className="text-end text-base text-neutral-600 transition-colors duration-1000 dark:border-neutral-700 dark:text-neutral-400">
+                <hr className="my-3 border-neutral-300 transition-colors dark:border-neutral-700" />
+                <div className="text-start text-base text-neutral-600 transition-colors dark:border-neutral-700 dark:text-neutral-400">
                   <div>
                     <span>by </span>
                     <span

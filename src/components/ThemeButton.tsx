@@ -16,7 +16,7 @@ export default function ThemeButton() {
     <button
       onClick={toggleTheme}
       aria-label="Theme selector button"
-      className={`flex size-6 items-center justify-center rounded-full ring ring-neutral-600 transition-colors duration-500 dark:ring-neutral-300 ${theme === "dark" ? "bg-neutral-800 dark:hover:bg-neutral-700" : "bg-neutral-200 hover:bg-white hover:duration-150"}`}
+      className={`flex size-6 items-center justify-center rounded-full ring ring-neutral-600 transition-colors dark:ring-neutral-300 ${theme === "dark" ? "bg-neutral-800 dark:hover:bg-neutral-700" : "bg-neutral-200 hover:bg-white"}`}
     >
       {theme === "dark" ? (
         <MdModeNight className="fill-neutral-200 pl-[2px] text-xl" />

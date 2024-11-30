@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <ThemeContextProvider>
         <body
-          className={`${tinos.className} min-h-screen bg-neutral-200 text-neutral-800 antialiased transition-colors duration-1000 ease-in-out hover:cursor-default dark:bg-neutral-800 dark:text-neutral-200`}
+          className={`${tinos.className} min-h-screen bg-neutral-200 text-neutral-800 antialiased transition-colors ease-in-out hover:cursor-default dark:bg-neutral-800 dark:text-neutral-200`}
         >
           <div className="flex min-h-screen flex-col">
             <Navbar />

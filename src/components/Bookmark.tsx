@@ -10,9 +10,9 @@ export default function Bookmark() {
   return (
     <button onClick={bookmarkButton}>
       {isBookmarked ? (
-        <BsBookmarkFill className="transition duration-1000 hover:text-[#555] dark:hover:text-neutral-400 hover:delay-[50ms] hover:duration-150" />
+        <BsBookmarkFill className="transition duration-150 hover:text-[#555] hover:delay-[50ms] dark:hover:text-neutral-400" />
       ) : (
-        <BsBookmark className="transition duration-1000 hover:text-[#555] dark:hover:text-neutral-400 hover:delay-[50ms] hover:duration-150" />
+        <BsBookmark className="transition duration-150 hover:text-[#555] hover:delay-[50ms] dark:hover:text-neutral-400" />
       )}
     </button>
   );
