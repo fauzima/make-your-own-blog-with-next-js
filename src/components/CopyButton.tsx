@@ -8,20 +8,27 @@ export default function CopyButton({ slug }: { slug: string }) {
   const [copied, setCopied] = useState<boolean>(false);
   return (
     <button
-      className="active:scale-50 active:opacity-0 transition-transform ease-in-out duration-75"
+      className="transition-transform duration-1000 ease-in-out hover:duration-75 active:scale-50 active:opacity-0"
       onClick={() => {
-        copy(slug);
+        copy(`https://make-your-own-blog-with-next-js.vercel.app/post/${slug}`);
         setCopied(true);
         setTimeout(() => {
           setCopied(false);
         }, 5000);
       }}
+      data-cy="check-button"
       //   onMouseLeave={() => setCopied(false)}
     >
       {copied ? (
-        <BsCheck2 className="text-green-500 hover:scale-50 hover:opacity-0 transition ease-in-out duration-150 delay-1000" />
+        <BsCheck2
+          data-cy="check-icon"
+          className="text-green-500 transition delay-1000 duration-150 ease-in-out hover:scale-50 hover:opacity-0"
+        />
       ) : (
-        <BsLink className="hover:text-[#333] transition ease-in-out delay-[50ms] duration-150 hover:cursor-pointer" />
+        <BsLink
+          data-cy="link-icon"
+          className="transition delay-[50ms] duration-1000 ease-in-out hover:cursor-pointer hover:text-neutral-600 hover:duration-150 dark:hover:text-neutral-400"
+        />
       )}
     </button>
   );

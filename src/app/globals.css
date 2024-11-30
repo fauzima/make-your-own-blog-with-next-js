@@ -14,14 +14,12 @@
   }
 } */
 
-body {
-  /* color: var(--foreground);
-  background: var(--background); */
-  font-family: Georgia;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }

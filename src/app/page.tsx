@@ -1,79 +1,73 @@
+import LocalTime from "@/components/localTime";
+import { getBlogs } from "@/libs/blog";
+import { IBlog } from "@/types/blog";
+import { Lato, Tinos } from "next/font/google";
 import Image from "next/image";
-import { getBlogs } from "./libs/blog";
-import { IBlog } from "./types/blog";
 import Link from "next/link";
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: "700",
+});
+
+const tinos = Tinos({
+  subsets: ["latin"],
+  weight: "700",
+});
 
 export default async function Home() {
   const data: IBlog[] = await getBlogs();
+  console.log(data);
+  
   return (
-    <div className="mt-16 md: max-w-[838px] xl:max-w-screen-xl mx-auto p-5">
-      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-        {data.map((item, idx) => {
+    <div className="mx-auto my-20 max-w-screen-2xl px-4 sm:px-8">
+      <div className="flex flex-wrap content-start gap-x-6 gap-y-6 text-lg">
+        {data.map((item) => {
           return (
             <div
-              key={idx}
-              className="group flex flex-col mx-auto w-[384px] bg-white border border-gray-200 rounded-lg shadow transition ease-in-out duration-150 hover:bg-gray-100"
+              key={item.sys.createdAt}
+              className="group relative flex w-full flex-col rounded bg-neutral-100 transition-colors duration-1000 dark:bg-neutral-900/50 md:w-[calc(50%-12px)] xl:w-[calc(33.33%-16px)]"
             >
-              <div className="w-full h-256 rounded-t-lg overflow-hidden">
-                <div
-                  className={`w-full h-full transition ease-in-out delay-150 group-hover:scale-110`}
-                >
-                  <Link href={`/post/${item.fields.slug}`}>
-                    <Image
-                      className="rounded-t-lg"
-                      src={`https:${item.fields.thumbnail.fields.file.url}`}
-                      priority
-                      sizes="(min-height: 384px)"
-                      width={500}
-                      height={500}
-                      alt={`${item.fields.slug}`}
-                    />
-                  </Link>
-                </div>
-              </div>
-              <Link
-                href={`/post/${item.fields.slug}`}
-                className="px-5 pt-5 text-2xl font-bold tracking-tight text-gray-900 transition ease-in-out duration-150 hover:text-blue-600"
+              <div
+                className={`${lato.className} absolute right-3 top-3 z-10 h-6 w-fit rounded-full bg-neutral-800 px-3 text-sm text-neutral-200 ring ring-neutral-300 transition-colors duration-1000 hover:cursor-pointer hover:bg-neutral-700 hover:underline hover:duration-150`}
               >
-                {item.fields.title}
-              </Link>
-              <div className="px-5 pb-5 place-items-end">
-                <hr className="mt-5" />
-                <div className="ml-1 my-4 font-normal text-gray-700 ">
-                  <div>
-                    <span className="font-bold text-gray-900">
-                      {item.fields.category}
-                    </span>
-                    <span>
-                      <i> • posted on {item.fields.date}</i>
-                    </span>
-                  </div>
-                  <i>
-                    written by {item.fields.author.fields.name} (
-                    {item.fields.author.fields.email})
-                  </i>
-                </div>
+                {item.fields.category}
+              </div>
+              <div className="aspect-[3/2] w-full overflow-hidden rounded-t bg-neutral-500">
+                <Link href={`/post/${item.fields.slug}`}>
+                  <Image
+                    className="h-full w-full rounded-t object-cover object-center transition-transform group-hover:scale-110"
+                    src={`https:${item.fields.thumbnail.fields.file.url}`}
+                    priority
+                    sizes="(min-height: 384px)"
+                    width={1500}
+                    height={500}
+                    alt={`${item.fields.slug}`}
+                  />
+                </Link>
+              </div>
+              <div className="flex flex-col px-6 py-3">
                 <Link
                   href={`/post/${item.fields.slug}`}
-                  className="inline-flex items-center px-3 py-2 text-sm font-bold text-center text-white shadow-lg bg-blue-700 rounded-lg hover:bg-blue-600 hover:cursor-pointer active:scale-[.98] transition ease-in-out"
+                  className={`${tinos.className} line-clamp-2 text-2xl tracking-tight hover:underline`}
                 >
-                  Read article
-                  <svg
-                    className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
-                    />
-                  </svg>
+                  {item.fields.title}
                 </Link>
+                <hr className="my-3 border-neutral-300 transition-colors duration-1000 dark:border-neutral-700" />
+                <div className="text-end text-base text-neutral-600 transition-colors duration-1000 dark:border-neutral-700 dark:text-neutral-400">
+                  <div>
+                    <span>by </span>
+                    <span
+                      className={`${tinos.className} hover:cursor-pointer hover:underline`}
+                    >
+                      {item.fields.author.fields.name}{" "}
+                    </span>
+                  </div>
+                  <span>posted on </span>
+                  <span className="hover:cursor-pointer hover:underline">
+                    <LocalTime time={item.sys.createdAt} />
+                  </span>
+                </div>
               </div>
             </div>
           );

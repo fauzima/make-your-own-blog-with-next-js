@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import { FaBlog } from "react-icons/fa6";
+import Navbar from "@/components/Navbar";
+import ThemeContextProvider from "@/helpers/ThemeContext";
+import { Tinos } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: {
-    template: "Blog | %s",
-    default: "Blog",
-  },
-  description: "Blog",
-  icons: [`${(<FaBlog />)}`],
-  openGraph: {
-    images: [
-      `https://contenthub-static.grammarly.com/blog/wp-content/uploads/2017/11/how-to-write-a-blog-post-760x406.jpeg`,
-    ],
-  },
+  title: "The Blog",
+  description: "The Blog",
 };
+
+const tinos = Tinos({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export default function RootLayout({
   children,
@@ -25,11 +21,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased min-h-screen mx-auto flex flex-col hover:cursor-default">
-        <Header />
-        <div className="flex-grow">{children}</div>
-        <Footer />
-      </body>
+      <ThemeContextProvider>
+        <body
+          className={`${tinos.className} min-h-screen bg-neutral-200 text-neutral-800 antialiased transition-colors duration-1000 ease-in-out hover:cursor-default dark:bg-neutral-800 dark:text-neutral-200`}
+        >
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+          </div>
+        </body>
+      </ThemeContextProvider>
     </html>
   );
 }
