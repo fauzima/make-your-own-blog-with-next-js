@@ -27,7 +27,7 @@ export default async function Home() {
               className="group relative flex w-full flex-col rounded bg-neutral-100 transition-colors dark:bg-neutral-900/50 md:w-[calc(50%-12px)] xl:w-[calc(33.33%-16px)]"
             >
               <div
-                className={`${lato.className} absolute right-3 top-3 z-10 inline-flex h-6 w-fit items-center rounded-full bg-neutral-800 px-3 text-base text-neutral-200 ring ring-neutral-300 transition-colors hover:cursor-pointer hover:bg-neutral-700`}
+                className={`${lato.className} absolute right-3 top-3 z-10 inline-flex size-fit items-center rounded-full bg-neutral-200 px-3 pb-[2px] text-base text-neutral-800 ring ring-neutral-700 transition-colors hover:bg-white dark:bg-neutral-800 dark:text-neutral-200 dark:ring-neutral-300 dark:hover:bg-neutral-700`}
               >
                 {item.fields.category}
               </div>
